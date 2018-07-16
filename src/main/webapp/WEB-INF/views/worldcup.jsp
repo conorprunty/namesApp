@@ -7,15 +7,20 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Origilols</title>
 
+	<link type="text/css" href="<c:url value='/resources/css/bootstrap.min.css' />" rel="stylesheet" />
 	<link type="text/css" href="<c:url value='/resources/css/style.css' />" rel="stylesheet" />
-	<script src="<c:url value='/resources/js/sorttable.js' />" type="text/javascript"></script>
+	<script src="<c:url value='/resources/js/filtertable.js' />" type="text/javascript"></script>
 	
 </head>
 
 
 <body>
-	<h2>World Cup Teams</h2>	
-	<table class="sortable" id ="tablestyle">
+	<h2>World Cup Teams</h2>
+	<br/>	
+	<input type="text" id="nameCheck" onkeyup="filterTable()" placeholder="Find by name...">
+	<br/>
+	<br/>
+	<table id="wctable" class="table table-hover table-bordered table-responsive fulltable">
 		<tr>
 			<th>Name</th><th>LolName</th>
 		</tr>

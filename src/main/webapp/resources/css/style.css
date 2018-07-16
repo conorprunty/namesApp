@@ -37,3 +37,29 @@ tr:first-child {
     background-color: #4CAF50;
     color: white;
 }
+
+th, td { 
+     width: 100px; 
+     align: center; 
+ } 
+ 
+ 
+ table.fulltable th { 
+     text-align: center; 
+     color: white; 
+     font-size:15px; 
+ 	background-color:cadetblue; 
+ 	border-width: 1px; 
+ 	padding: 8px; 
+ 	border-style: solid; 
+ 	border-color: white; 
+ }  
+ 
+ 
+ table.fulltable { 
+     text-align: center; 
+ 	color:#333333; 
+ 	border-width: 3px; 
+ 	border-color: black; 
+ 	border-collapse: collapse; 
+ } 
