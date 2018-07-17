@@ -14,14 +14,20 @@
 
 
 <body>
-	<h2>Choose a link from below</h2>
-	<!-- i.e. /worldcup is the link -->
-	<a href='worldcup'>World Cup Teams</a>
+	<h2>Your comments</h2>	
+	<table class="sortable" id ="tablestyle">
+		<tr>
+			<th>Name</th><th>Comment(s)</th><th>Mod Comment(s)</th>
+		</tr>
+		<c:forEach items="${comments}" var="comments">
+			<tr>
+			<td>${comments.name}</td>
+			<td>${comments.comments}</td>
+			<td>${comments.modcomments}</td>
+			</tr>
+		</c:forEach>
+	</table>
 	<br/>
-	<br/>
-	<a href='premteams'>Premier League Teams</a>
-	<br/>
-	<br/>
-	<a href='new'>Feedback / Comments</a>
+	<a href="<c:url value='/' />">Home</a>
 </body>
 </html>
