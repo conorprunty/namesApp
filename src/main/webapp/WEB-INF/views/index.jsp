@@ -23,5 +23,8 @@
 	<br/>
 	<br/>
 	<a href='new'>Feedback / Comments</a>
+	<br/>
+	<br/>
+	<a href='admin'>Admin</a>
 </body>
 </html>

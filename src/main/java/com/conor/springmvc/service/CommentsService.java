@@ -15,4 +15,6 @@ public interface CommentsService {
 	Comments findById(int id);
 	
 	void updateComments(Comments comments);	
+	
+	void deleteCommentById(int id);
 }

@@ -34,6 +34,9 @@
 						<td>${allcomments.modcomments}</td>
 						<td>${allcomments.moderated}</td>
 							<td><a href="<c:url value='/admin/edit-comments-${allcomments.id}' />" class="btn btn-success custom-width">Edit</a></td>
+						<sec:authorize access="hasRole('DBA')">
+							<td><a href="<c:url value='/dadmin/delete-comments-${allcomments.id}' />" class="btn btn-danger custom-width" onclick="return confirm('Are you sure?')" >Delete</a></td>
+        				</sec:authorize>
 					</tr>
 				</c:forEach>
 	    		</tbody>

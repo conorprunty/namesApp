@@ -199,6 +199,15 @@ public class AppController {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "allcommentssuccess";
 	}
+	
+	/**
+	 * This method will delete a comment by its id.
+	 */
+	@RequestMapping(value = { "/dadmin/delete-comments-{id}" }, method = RequestMethod.GET)
+	public String deleteComment(@PathVariable int id) {
+		cService.deleteCommentById(id);
+		return "redirect:/admin/allcomments";
+	}
 
 
 	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)

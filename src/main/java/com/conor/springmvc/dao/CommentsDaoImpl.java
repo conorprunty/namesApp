@@ -41,4 +41,12 @@ public class CommentsDaoImpl extends AbstractDao<Integer, Comments> implements C
 		return (List<Comments>) criteria.list();
 	}
 
+	@Override
+	public void deleteById(int id) {
+		Criteria crit = createEntityCriteria();
+		crit.add(Restrictions.eq("id", id));
+		Comments comments = (Comments) crit.uniqueResult();
+		delete(comments);
+	}
+
 }

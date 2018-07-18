@@ -47,4 +47,9 @@ public class CommentsServiceImpl implements CommentsService {
 	public List<Comments> findAllModComments() {
 		return dao.findAllModComments();
 	}
+
+	@Override
+	public void deleteCommentById(int id) {
+		dao.deleteById(id);
+	}
 }

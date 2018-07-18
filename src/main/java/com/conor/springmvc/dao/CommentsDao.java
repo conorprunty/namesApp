@@ -14,4 +14,6 @@ public interface CommentsDao {
 	
 	Comments findById(int id);
 	
+	void deleteById(int id);
+	
 }
