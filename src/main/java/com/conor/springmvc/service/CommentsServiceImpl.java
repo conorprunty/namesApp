@@ -10,6 +10,7 @@ import com.conor.springmvc.dao.CommentsDao;
 import com.conor.springmvc.dao.TeamsDao;
 import com.conor.springmvc.model.Comments;
 import com.conor.springmvc.model.Teams;
+import com.conor.springmvc.model.User;
 
 @Service("CommentsService")
 @Transactional
@@ -26,5 +27,24 @@ public class CommentsServiceImpl implements CommentsService {
 	@Override
 	public void saveComments(Comments comments) {
 		dao.saveComments(comments);
-	}	
+	}
+
+	@Override
+	public Comments findById(int id) {
+		return dao.findById(id);
+	}
+
+	@Override
+	public void updateComments(Comments comments) {
+		Comments entity = dao.findById(comments.getId());
+		if(entity!=null){
+			entity.setModcomments(comments.getModcomments());
+			entity.setModerated("Y");
+		}
+	}
+
+	@Override
+	public List<Comments> findAllModComments() {
+		return dao.findAllModComments();
+	}
 }

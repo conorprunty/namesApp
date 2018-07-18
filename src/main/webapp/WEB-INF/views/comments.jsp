@@ -7,15 +7,15 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Origilols</title>
 
+	<link type="text/css" href="<c:url value='/resources/css/bootstrap.min.css' />" rel="stylesheet" />
 	<link type="text/css" href="<c:url value='/resources/css/style.css' />" rel="stylesheet" />
-	<script src="<c:url value='/resources/js/sorttable.js' />" type="text/javascript"></script>
 	
 </head>
 
 
 <body>
 	<h2>Your comments</h2>	
-	<table class="sortable" id ="tablestyle">
+	<table id="wctable" class="table table-hover table-bordered table-responsive fulltable">
 		<tr>
 			<th>Name</th><th>Comment(s)</th><th>Mod Comment(s)</th>
 		</tr>

@@ -19,6 +19,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -100,6 +101,14 @@ public class AppController {
 		return "admin";
 	}
 	
+	@RequestMapping(value = { "/admin/allcomments" }, method = RequestMethod.GET)
+	public String allComments(ModelMap model) {
+
+		List<Comments> comments = cService.findAllModComments();
+		model.addAttribute("allcomments", comments);
+		return "allcomments";
+	}
+	
 	/**
 	 * This method will list all existing users.
 	 */
@@ -158,6 +167,38 @@ public class AppController {
         //return "success";
         return "registrationsuccess";
     }
+    
+	/**
+	 * This method will provide the medium to update an existing comment.
+	 */
+	@RequestMapping(value = { "/admin/edit-comments-{id}" }, method = RequestMethod.GET)
+	public String editComment(@PathVariable int id, ModelMap model) {
+		Comments comments = cService.findById(id);
+		model.addAttribute("comments", comments);
+		model.addAttribute("edit", true);
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "submitModComments";
+	}
+	
+	/**
+	 * This method will be called on form submission, handling POST request for
+	 * updating comment in database.
+	 */
+	@RequestMapping(value = { "/admin/edit-comments-{id}" }, method = RequestMethod.POST)
+	public String updateComment(@Valid Comments comments, BindingResult result,
+			ModelMap model, @PathVariable int id) {
+
+		if (result.hasErrors()) {
+			return "submitModComments";
+		}
+
+
+		cService.updateComments(comments);
+
+		model.addAttribute("success", "Comment: \"" + comments.getComments() + "\"\nby "+ comments.getName() + "\nadded successfully to the public.");
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "allcommentssuccess";
+	}
 
 
 	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)

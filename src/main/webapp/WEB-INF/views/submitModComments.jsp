@@ -36,18 +36,22 @@
                 <td><form:input path="comments" id="comments"/></td>
                 <td><form:errors path="comments" cssClass="error"/></td>
             </tr>
+     		
+     		<tr>
+                <td><label for="name">Mod Comments: </label> </td>
+                <td><form:input path="modcomments" id="modcomments"/></td>
+                <td><form:errors path="modcomments" cssClass="error"/></td>
+            </tr>
      
             <tr>
                 <td>
                     <input type="submit" value="Submit"/>
                 </td>
             </tr>
-            <form:input type="hidden" path="moderated" id="moderated" value="N"/>
         </table>
     </form:form>
     <br/>
-   View all <a href="<c:url value='/comments' />">Comments</a>
     <br/>
-    Go back to <a href="<c:url value='/' />">Homepage</a>
+    Go back to <a href="<c:url value='/admin' />">Admin Home</a>
 </body>
 </html>

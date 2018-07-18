@@ -18,5 +18,6 @@
 	<p>Dummy Admin Page</p>
 	<a href="<c:url value='/admin/newuser' />">Add User</a>
 	<a href="<c:url value='/admin/userslist' />">All Users</a>
+	<a href="<c:url value='/admin/allcomments' />">All Comments</a>
 </body>
 </html>
